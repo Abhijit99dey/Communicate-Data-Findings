@@ -13269,11 +13269,16 @@ $(document).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><blockquote><p>I selected Ford GoBike dataset in order to investigate bike hiring by different people. There are a lot of different variables and our main focus is to define the most common variables which affect the bike hiring program in SF.</p>
+<h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><blockquote><p>I selected Ford GoBike dataset in order to investigate bike hiring by different people. There are a lot of different variables and our main focus is to define the most common variables which affect the bike hiring on the project.</p>
 </blockquote>
-<h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><blockquote><p>The data consisted of 16 different variables such as age, gender, weekday, time and others. It contains 3.31 billion rides. Ages in the dataset from 18 to 56 takes 95% of the users in dataset. There were users more than 100 years old. So, we can remove users more than 60 years old.<br>
-Also, I generated new fields such as age group in order to make grouping and analyze the data by using groups.<br>
-Ford GoBike spread the service to San Francisco, Oakland and San Jose. However, it's hard to imagine traffic. So regarding this complexity, I decided to focus on San Francisco area.</p>
+<h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><blockquote><ul>
+<li><p>There are many variables in the data within 16 different variables representing different data such as (age, gender, days, duration, and others). The data also contains approximately 3.31 billion records.</p>
+</li>
+<li><p>Data exploration and focus on the ages and found that the age range is large (18-140) years and there are extreme values ​​in it, so the focus was on the largest proportion, which represents 95% and was in the range of ages (18-60) years.</p>
+</li>
+<li><p>The company also deployed the service in more than one city and it is difficult to focus on all of them and by examining the data we found it better to choose the city of San Francisco to provide large data in it, so the city limits were adopted through the longitude and latitude and focus on.</p>
+</li>
+</ul>
 </blockquote>
 
 </div>
@@ -13282,8 +13287,8 @@ Ford GoBike spread the service to San Francisco, Oakland and San Jose. However, 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Age-Distrubition-of-Users">Age Distrubition of Users<a class="anchor-link" href="#Age-Distrubition-of-Users">&#182;</a></h2><blockquote><p>Here is the distrubition of users. Ages from 18 to 56 takes 95% of the users.
-Some of the users entered their ages incorrectly, there are some users who are more than 100 years old.</p>
+<h2 id="Age-Distrubition-of-Users">Age Distrubition of Users<a class="anchor-link" href="#Age-Distrubition-of-Users">&#182;</a></h2><blockquote><p>Here is the distrubition of users. Ages from 18 to 60 takes 95% of the users.
+Some of the users entered their ages incorrectly.</p>
 </blockquote>
 
 </div>
@@ -13334,7 +13339,7 @@ Some of the users entered their ages incorrectly, there are some users who are m
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Monthly-Trend-of-Bike-Users">Monthly Trend of Bike Users<a class="anchor-link" href="#Monthly-Trend-of-Bike-Users">&#182;</a></h2><blockquote><p>There is seasonality when the season is winter because it is cold. However, bike rides of July 2017 and 2018 increased more than 5 times. This slide shows us, GoBike program is growing.</p>
+<h2 id="Monthly-Trend-of-Bike-Users">Monthly Trend of Bike Users<a class="anchor-link" href="#Monthly-Trend-of-Bike-Users">&#182;</a></h2><blockquote><p>The service is clearly affected by the seasons, so the use of the service decreases in winter and increases in other seasons.</p>
 </blockquote>
 
 </div>
@@ -13565,22 +13570,6 @@ Customers use this service during weekend for leisure and weekdays after work.</
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
 </div></section></section>
 </div>
 </div>
