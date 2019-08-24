@@ -13292,27 +13292,6 @@ Some of the users entered their ages incorrectly, there are some users who are m
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Set visualization style</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
-
-<span class="c1">#Filter data to include reasonable member age range</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2018</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_birth_year&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -13360,65 +13339,6 @@ Some of the users entered their ages incorrectly, there are some users who are m
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create new fields for date from start_time and end_time</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_year_month&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_year_month&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_year_month_renamed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%y&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="s1">&#39;%m&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_year&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_year&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_month&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_month&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_hour_minute&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H-%m&#39;</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_hour_minute&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H-%m&#39;</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_hour&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_hour&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday_name</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_weekday&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday_name</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time_weekday_abbr&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">transform_axis_fmt</span><span class="p">(</span><span class="n">tick_val</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">tick_val</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tick_val</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:d}</span><span class="s1">K&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">tick_val</span> <span class="o">&gt;=</span> <span class="mi">1000000</span><span class="p">:</span> 
-        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tick_val</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:d}</span><span class="s1">M&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">tick_val</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
@@ -13477,28 +13397,6 @@ Some of the users entered their ages incorrectly, there are some users who are m
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a new field for member age group from member_age_bin</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age_bins&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;10 - 20&#39;</span> <span class="k">if</span> <span class="mi">10</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;=</span><span class="mi">20</span>
-                                                  <span class="k">else</span> <span class="s1">&#39;20 - 30&#39;</span> <span class="k">if</span> <span class="mi">20</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;=</span><span class="mi">30</span>
-                                                  <span class="k">else</span> <span class="s1">&#39;30 - 40&#39;</span> <span class="k">if</span> <span class="mi">30</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;=</span><span class="mi">40</span>
-                                                  <span class="k">else</span> <span class="s1">&#39;40 - 50&#39;</span> <span class="k">if</span> <span class="mi">40</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;=</span><span class="mi">50</span>
-                                                  <span class="k">else</span> <span class="s1">&#39;50 - 60&#39;</span> <span class="k">if</span> <span class="mi">50</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;=</span><span class="mi">60</span>
-                                                  <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -13550,23 +13448,6 @@ Some of the users entered their ages incorrectly, there are some users who are m
 <h2 id="&#160;Gender-of-Users">&#160;Gender of Users<a class="anchor-link" href="#&#160;Gender-of-Users">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trip_by_gender_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_gender&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;bike_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
-<span class="n">trip_by_gender_df</span><span class="p">[</span><span class="s1">&#39;perc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">trip_by_gender_df</span><span class="p">[</span><span class="s1">&#39;bike_id&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">trip_by_gender_df</span><span class="p">[</span><span class="s1">&#39;bike_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
@@ -13627,50 +13508,6 @@ Customers use this service during weekend for leisure and weekdays after work.</
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input_hidden">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subscriber_hour_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">)</span> 
-                              <span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_hour&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">)</span>
-                             <span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time_hour&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;bike_id&#39;</span> <span class="p">:</span> <span class="s1">&#39;count&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;bike_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="s1">&#39;Fri&#39;</span><span class="p">,</span><span class="s1">&#39;Sat&#39;</span><span class="p">,</span> <span class="s1">&#39;Sun&#39;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;count_perc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subscriber_hour_df</span><span class="p">[</span><span class="s1">&#39;count_perc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">subscriber_hour_df_pivoted</span> <span class="o">=</span> <span class="n">subscriber_hour_df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;start_time_hour&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">)</span>
-<span class="n">customer_hour_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;member_age&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">)</span> 
-                              <span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;start_time_hour&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">)</span> 
-                             <span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time_hour&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;bike_id&#39;</span> <span class="p">:</span> <span class="s1">&#39;count&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;bike_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="s1">&#39;Fri&#39;</span><span class="p">,</span><span class="s1">&#39;Sat&#39;</span><span class="p">,</span> <span class="s1">&#39;Sun&#39;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;count_perc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#male</span>
-<span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">customer_hour_df</span><span class="p">[</span><span class="s1">&#39;count_perc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">customer_hour_df_pivoted</span> <span class="o">=</span> <span class="n">customer_hour_df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;start_time_hour&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;start_time_weekday_abbr&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input_hidden">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -13717,6 +13554,31 @@ Customers use this service during weekend for leisure and weekdays after work.</
 </div>
 
 </div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><blockquote><p>There have been 3.31 billion rides. 20-30 years previous users ar speedily growing compared to alternative user teams. once the service 1st started 30-40 years previous users were dominant, but 20-30 years previous users became a frontrunner during a year. 20 to 40 years previous individuals took the quite p of motorbike rides. Among those, 30 to 40 years previous people's rides account almost of all bike rides. Male took around %76 of all bike rides, and female took around %24 of them. People use this service on weekdays quite weekends. 8 am and 5 pm ar the peak hours for this service. Also, individuals use this service once they are in mealtime similarly. Percentage of subscribers is almost %88.15. Percentage of customers is almost %11.85. Customers' rides appear increasing slightly however subscribers' rides reached 6 times more than customers' on Oct 2018. there's a decrease in Nov 2018 for subscribers however it feels like it's connected with the winter season. Subscribers' average trip length is around 11 minute. Customers' average trip length is around 28 minutes. Subscribers and customers trip distance was regarding constant, that is slightly quite one mile. 90% of motorbike riders turn up on a weekday. The peak bike rides time for all members is around commute time.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 
 </div></section></section>
